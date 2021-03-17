@@ -1,0 +1,25 @@
+﻿@model List<BladePoker.Models.Hand>
+@using BladePoker.Models
+@{
+    ViewData["Title"] = "FiveCardDraw";
+}
+
+<h2>Five Card Draw</h2>
+
+@foreach(Hand hand in Model)
+{
+    @hand.playerName
+    <br/>
+    string playerHand = "";
+    foreach(Card card in hand.cards)
+    {
+        
+        playerHand = playerHand + card.value + card.suit.Substring(0,1) + "  ";
+
+    }
+    @playerHand
+    <br/><br/>
+}
+<br/>
+<br/>
+@ViewData["Message"]
